@@ -39,7 +39,7 @@ function build_and_push_spark_py() {
     # build spark
     /bin/bash ./bin/docker-image-tool.sh -r $DOCKER_REGISTRY/spark-2.4.7-without-hadoop-with-py -t alpha -p $BUILD_HOME/kubernetes/dockerfiles/spark/bindings/python/Dockerfile build
     # fixed tag name pattern
-    docker tag $DOCKER_REGISTRY/spark-2.4.7-without-hadoop/spark:alpha $DOCKER_REGISTRY/spark-2.4.7-without-hadoop-with-py:alpha 
+    docker tag $DOCKER_REGISTRY/spark-2.4.7-without-hadoop/spark-py:alpha $DOCKER_REGISTRY/spark-2.4.7-without-hadoop-with-py:alpha 
     # already logged in Makefile
     docker push $DOCKER_REGISTRY/spark-2.4.7-without-hadoop-with-py:alpha
 }
