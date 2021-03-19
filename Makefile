@@ -1,7 +1,11 @@
 # export common environment variables
-DOCKER_REGISTRY_USERNAME = $(or $(shell printenv DOCKER_REGISTRY_USERNAME), "")
-DOCKER_REGISTRY_PASSWORD = $(or $(shell printenv DOCKER_REGISTRY_PASSWORD), "")
-DOCKER_REGISTRY = $(or $(shell printenv DOCKER_REGISTRY), "tinkmaster")
+DOCKER_REGISTRY_USERNAME = $(or $(shell printenv DOCKER_REGISTRY_USERNAME), )
+DOCKER_REGISTRY_PASSWORD = $(or $(shell printenv DOCKER_REGISTRY_PASSWORD), )
+DOCKER_REGISTRY = $(or $(shell printenv DOCKER_REGISTRY), tinkmaster)
+
+# https://www.gnu.org/software/make/manual/make.html#index-_002eEXPORT_005fALL_005fVARIABLES
+.EXPORT_ALL_VARIABLES:
+export DOCKER_REGISTRY
 
 # remove the PHONY no longer needed
 .PHONY: all
