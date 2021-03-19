@@ -1,15 +1,11 @@
 # export common environment variables
 DOCKER_REGISTRY_USERNAME = $(or $(shell printenv DOCKER_REGISTRY_USERNAME), "")
 DOCKER_REGISTRY_PASSWORD = $(or $(shell printenv DOCKER_REGISTRY_PASSWORD), "")
-DOCKER_REGISTER = $(or $(shell printenv DOCKER_REGISTRY), "tinkmaster")
+DOCKER_REGISTRY = $(or $(shell printenv DOCKER_REGISTRY), "tinkmaster")
 
 # remove the PHONY no longer needed
 .PHONY: all
-all: export-env docker-login docker-build-spark-2.4.7
-
-.PHONY: export-env
-export-env:
-	export DOCKER_REGISTER=$DOCKER_REGISTER
+all: docker-login docker-build-spark-2.4.7
 
 .PHONY: docker-login
 docker-login:
