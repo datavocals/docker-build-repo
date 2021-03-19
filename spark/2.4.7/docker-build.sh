@@ -13,9 +13,11 @@ tar -xf $WORK_DIR/spark-2.4.7-bin-without-hadoop.tgz -C $WORK_DIR
 
 BUILD_HOME=$WORK_DIR/spark-2.4.7-bin-without-hadoop
 
+cd $BUILD_HOME
+
 function build_and_push_spark() {
     # build spark
-    /bin/bash $BUILD_HOME/bin/docker-image-tool.sh -r $DOCKER_REGISTRY/spark-2.4.7-without-hadoop -t alpha build
+    /bin/bash ./bin/docker-image-tool.sh -r $DOCKER_REGISTRY/spark-2.4.7-without-hadoop -t alpha build
     # fixed tag name pattern
     docker tag $DOCKER_REGISTRY/spark-2.4.7-without-hadoop/spark:alpha $DOCKER_REGISTRY/spark-2.4.7-without-hadoop:alpha 
     # already logged in Makefile
@@ -25,7 +27,7 @@ function build_and_push_spark() {
 # build spark-with-r
 function build_and_push_spark_r() {
     # build spark
-    /bin/bash $BUILD_HOME/bin/docker-image-tool.sh -r $DOCKER_REGISTRY/spark-2.4.7-without-hadoop-with-r -t alpha -R $BUILD_HOME/kubernetes/dockerfiles/spark/bindings/R/Dockerfile build
+    /bin/bash ./bin/docker-image-tool.sh -r $DOCKER_REGISTRY/spark-2.4.7-without-hadoop-with-r -t alpha -R $BUILD_HOME/kubernetes/dockerfiles/spark/bindings/R/Dockerfile build
     # fixed tag name pattern
     docker tag $DOCKER_REGISTRY/spark-2.4.7-without-hadoop/spark-r:alpha $DOCKER_REGISTRY/spark-2.4.7-without-hadoop-with-r:alpha 
     # already logged in Makefile
@@ -35,7 +37,7 @@ function build_and_push_spark_r() {
 # build spark-with python
 function build_and_push_spark_py() {
     # build spark
-    /bin/bash $BUILD_HOME/bin/docker-image-tool.sh -r $DOCKER_REGISTRY/spark-2.4.7-without-hadoop-with-py -t alpha -p $BUILD_HOME/kubernetes/dockerfiles/spark/bindings/python/Dockerfile build
+    /bin/bash ./bin/docker-image-tool.sh -r $DOCKER_REGISTRY/spark-2.4.7-without-hadoop-with-py -t alpha -p $BUILD_HOME/kubernetes/dockerfiles/spark/bindings/python/Dockerfile build
     # fixed tag name pattern
     docker tag $DOCKER_REGISTRY/spark-2.4.7-without-hadoop/spark:alpha $DOCKER_REGISTRY/spark-2.4.7-without-hadoop-with-py:alpha 
     # already logged in Makefile
