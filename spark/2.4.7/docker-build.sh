@@ -2,17 +2,16 @@
 # 1. spark-2.4.7-without-hadoop
 # 2. spark-2.4.7-without-hadoop-python
 
-
+WORK_DIR=$(cd "`dirname "$0"`"; pwd)
 
 # First download built spark distribution package from apache
 # referrence: https://spark.apache.org/downloads.html
-wget https://downloads.apache.org/spark/spark-2.4.7/spark-2.4.7-bin-without-hadoop.tgz
+wget https://downloads.apache.org/spark/spark-2.4.7/spark-2.4.7-bin-without-hadoop.tgz -O $WORK_DIR/spark-2.4.7-bin-without-hadoop.tgz
 
 # extract
-tar -xvf spark-2.4.7-bin-without-hadoop.tgz
+tar -xf spark-2.4.7-bin-without-hadoop.tgz
 
-BUILD_HOME=$(cd "`dirname "$0"`"/..; pwd)spark-2.4.7-bin-without-hadoop
-
+BUILD_HOME=$WORK_DIR/spark-2.4.7-bin-without-hadoop
 
 function build_and_push_spark() {
     # build spark

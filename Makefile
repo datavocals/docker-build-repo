@@ -5,7 +5,11 @@ DOCKER_REGISTER = $(or $(shell printenv DOCKER_REGISTRY), "tinkmaster")
 
 # remove the PHONY no longer needed
 .PHONY: all
-all: docker-login docker-build-spark-2.4.7
+all: export-env docker-login docker-build-spark-2.4.7
+
+.PHONY: export-env
+export-env:
+	export DOCKER_REGISTER=$DOCKER_REGISTER
 
 .PHONY: docker-login
 docker-login:
