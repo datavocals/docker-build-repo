@@ -9,7 +9,7 @@ WORK_DIR=$(cd "`dirname "$0"`"; pwd)
 wget https://downloads.apache.org/spark/spark-2.4.7/spark-2.4.7-bin-without-hadoop.tgz -O $WORK_DIR/spark-2.4.7-bin-without-hadoop.tgz
 
 # extract
-tar -xf spark-2.4.7-bin-without-hadoop.tgz
+tar -xf $WORK_DIR/spark-2.4.7-bin-without-hadoop.tgz
 
 BUILD_HOME=$WORK_DIR/spark-2.4.7-bin-without-hadoop
 
