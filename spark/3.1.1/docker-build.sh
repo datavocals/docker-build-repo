@@ -27,7 +27,7 @@ function build_and_push_spark() {
 # build spark-with-r
 function build_and_push_spark_r() {
     # build spark
-    /bin/bash ./bin/docker-image-tool.sh -r $DOCKER_REGISTRY/spark-3.1.1-without-hadoop-with-r -t alpha -R $BUILD_HOME/kubernetes/dockerfiles/spark/bindings/R/Dockerfile build
+    /bin/bash ./bin/docker-image-tool.sh -r $DOCKER_REGISTRY/spark-3.1.1-without-hadoop -t alpha -R $BUILD_HOME/kubernetes/dockerfiles/spark/bindings/R/Dockerfile build
     # fixed tag name pattern
     docker tag $DOCKER_REGISTRY/spark-3.1.1-without-hadoop/spark-r:alpha $DOCKER_REGISTRY/spark-3.1.1-without-hadoop-with-r:alpha 
     # already logged in Makefile
@@ -37,7 +37,7 @@ function build_and_push_spark_r() {
 # build spark-with python
 function build_and_push_spark_py() {
     # build spark
-    /bin/bash ./bin/docker-image-tool.sh -r $DOCKER_REGISTRY/spark-3.1.1-without-hadoop-with-py -t alpha -p $BUILD_HOME/kubernetes/dockerfiles/spark/bindings/python/Dockerfile build
+    /bin/bash ./bin/docker-image-tool.sh -r $DOCKER_REGISTRY/spark-3.1.1-without-hadoop -t alpha -p $BUILD_HOME/kubernetes/dockerfiles/spark/bindings/python/Dockerfile build
     # fixed tag name pattern
     docker tag $DOCKER_REGISTRY/spark-3.1.1-without-hadoop/spark-py:alpha $DOCKER_REGISTRY/spark-3.1.1-without-hadoop-with-py:alpha 
     # already logged in Makefile
