@@ -9,12 +9,12 @@ export DOCKER_REGISTRY
 
 # remove the PHONY no longer needed
 .PHONY: all
-all: docker-login docker-build-spark-2.4.7
+all: docker-login docker-build-spark-3.1.1
 
 .PHONY: docker-login
 docker-login:
 	docker login --username=$(DOCKER_REGISTRY_USERNAME)  --password=$(DOCKER_REGISTRY_PASSWORD)
 
-.PHONY: docker-build-spark-2.4.7
-docker-build-spark-2.4.7: spark/2.4.7/docker-build.sh
-	/bin/bash spark/2.4.7/docker-build.sh
+.PHONY: docker-build-spark-3.1.1
+docker-build-spark-3.1.1: spark/3.1.1/docker-build.sh
+	/bin/bash spark/3.1.1/docker-build.sh
