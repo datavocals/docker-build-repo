@@ -23,7 +23,7 @@ function build_and_push_spark_r() {
     # fixed tag name pattern
     docker tag $DOCKER_REGISTRY/spark-$1-hadoop-$2-scala-$3/spark-r:alpha $DOCKER_REGISTRY/spark-$1-hadoop-$2-scala-$3:alpha-with-r
     # already logged in Makefile
-    docker push $DOCKER_REGISTRY/spark-3.1.1-without-hadoop-with-r:alpha 
+    docker push $DOCKER_REGISTRY/spark-$1-hadoop-$2-scala-$3:alpha-with-r
 }
 
 # build spark-with python
