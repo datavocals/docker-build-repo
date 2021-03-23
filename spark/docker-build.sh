@@ -38,9 +38,11 @@ function build_and_push_spark_py() {
 
 function build_spark_image() {
     download_and_extract_spark_dist $1 $2 $4
+    cd "$4/spark-$1-bin-hadoop$2"
     build_and_push_spark $1 $2 $3 "$4/spark-$1-bin-hadoop$2"
     build_and_push_spark_r $1 $2 $3 "$4/spark-$1-bin-hadoop$2"
     build_and_push_spark_py $1 $2 $3 "$4/spark-$1-bin-hadoop$2"
+    cd -
 }
 
 build_spark_image '3.1.1' '3.2' '2.12' $WORK_DIR
