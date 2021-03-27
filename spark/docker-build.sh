@@ -3,7 +3,7 @@ WORK_DIR=$(cd "`dirname "$0"`"; pwd)
 function download_and_extract_spark_dist() {
     # First download built spark distribution package from apache
     # referrence: https://spark.apache.org/downloads.html
-    wget https://downloads.apache.org/spark/spark-$1/spark-$1-bin-hadoop$2.tgz -O $3/spark-$1-bin-hadoop$2.tgz
+    wget -q https://downloads.apache.org/spark/spark-$1/spark-$1-bin-hadoop$2.tgz -O $3/spark-$1-bin-hadoop$2.tgz
     tar -xf $3/spark-$1-bin-hadoop$2.tgz -C $3
 }
 
