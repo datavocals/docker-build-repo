@@ -6,12 +6,12 @@ ARG HADOOP_DIST_DIR
 
 USER root
 
-RUN groupadd --system -g 1800 -r hadoop && useradd --system --no-log-init -r -g hadoop -u 1800 hadoop
+RUN groupadd --system -g 1800 -r bigdata && useradd --system --no-log-init -r -g bigdata -u 1801 hadoop
 
 RUN mkdir /var/run/hadoop /var/log/hadoop /usr/local/hadoop /etc/hadoop
-RUN chown hadoop:hadoop /var/run/hadoop /var/log/hadoop /usr/local/hadoop /etc/hadoop
+RUN chown hadoop:bigdata /var/run/hadoop /var/log/hadoop /usr/local/hadoop /etc/hadoop
 
-USER 1800:1800
+USER 1801:1800
 
 COPY ${HADOOP_DIST_DIR}/ /usr/local/hadoop/
 

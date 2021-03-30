@@ -6,12 +6,13 @@ ARG HIVE_DIST_DIR
 
 USER root
 
-RUN groupadd --system -g 1801 -r hive && useradd --system --no-log-init -r -g hive -u 1801 hive
+# bigdata user group has been created in hadoop image
+RUN useradd --system --no-log-init -r -g bigdata -u 1802 hive
 
 RUN mkdir /var/run/hive /var/log/hive /usr/local/hive /etc/hive
-RUN chown hive:hive /var/run/hive /var/log/hive /usr/local/hive /etc/hive
+RUN chown hive:bigdata /var/run/hive /var/log/hive /usr/local/hive /etc/hive
 
-USER 1800:1800
+USER 1802:1800
 
 COPY ${HIVE_DIST_DIR}/ /usr/local/hive/
 
