@@ -9,7 +9,7 @@ export DOCKER_REGISTRY
 
 # remove the PHONY no longer needed
 .PHONY: all
-all: docker-login docker-build-hadoop
+all: docker-login docker-build-hadoop docker-build-hive
 
 .PHONY: docker-login
 docker-login:
@@ -22,3 +22,7 @@ docker-build-spark: spark/docker-build.sh
 .PHONY: docker-build-hadoop
 docker-build-hadoop: hadoop/docker-build.sh
 	/bin/bash hadoop/docker-build.sh
+
+.PHONY: docker-build-hive
+docker-build-hive: hive/docker-build.sh
+	/bin/bash hive/docker-build.sh
