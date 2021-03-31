@@ -15,9 +15,9 @@ RUN chown hive:bigdata /var/run/hive /var/log/hive /usr/local/hive /etc/hive
 USER 1802:1800
 
 COPY ${HIVE_DIST_DIR}/ /usr/local/hive/
+COPY ${MYSQL_JAR_DIR}/mysql* /usr/local/hive/lib/
 
 WORKDIR /usr/local/hive
-
 
 ENV HIVE_LOG_DIR=/var/log/hive
 ENV HIVE_HOME=/usr/local/hive
