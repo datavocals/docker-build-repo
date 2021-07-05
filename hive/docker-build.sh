@@ -16,7 +16,9 @@ function download_mysql_jar() {
 
 # for s3 storage
 function download_s3_jar() {
-  wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/2.8.5/hadoop-aws-2.8.5.jar -O $1/hadoop-aws-2.8.5.jar
+  wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/2.7.2/hadoop-aws-2.7.2.jar -O $1/hadoop-aws-2.7.2.jar
+  wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-common/2.7.2/hadoop-common-2.7.2.jar -O $1/hadoop-common-2.7.2.jar
+  wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk/1.7.4/aws-java-sdk-1.7.4.jar -O $1/aws-java-sdk-1.7.4.jar
 }
 
 download_and_extract_hive_dist $HIVE_VERSION $WORK_DIR
