@@ -16,6 +16,7 @@ USER 1802:1800
 
 COPY ${HIVE_DIST_DIR}/ /usr/local/hive/
 COPY ${MYSQL_JAR_DIR}/mysql* /usr/local/hive/lib/
+COPY ${S3_AWS_JAR_DIR}/hadoop* /usr/local/hive/lib/
 
 WORKDIR /usr/local/hive
 
